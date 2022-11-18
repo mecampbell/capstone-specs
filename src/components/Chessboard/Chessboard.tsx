@@ -225,6 +225,7 @@ export default function Chessboard() {
     }
 
     return (
+    // NEED TO CREATE A RESET STATE UPON REFRESHING
     <>
         <div id="pawn-promotion-modal" className='hidden' ref={modalRef}>
             <div className="modal-body">
