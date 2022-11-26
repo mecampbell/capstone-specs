@@ -226,6 +226,9 @@ export default function Chessboard() {
     return (
     // NEED TO CREATE A RESET STATE UPON REFRESHING
     <>
+    <div>
+        <button onClick={() => window.location.reload()}>Reset board</button>
+    </div>
         <div id="pawn-promotion-modal" className='hidden' ref={modalRef}>
             <div className="modal-body">
                 <img onClick={() => {promotePawn(PieceType.ROOK)}} src={`/assets/images/rook_${promotionTeamType()}.png`} alt='Rook'/>
