@@ -121,12 +121,9 @@ export default function Chessboard() {
                     }, [] as Piece[])
                     setPieces(updatedPieces);
                 }   else if (validMove) {
-                    // UPDATES THE PIECE POSITION
-                    // AND IF A PIECE IS ATTACKED, REMOVES IT
-                    
+                    // ALLOWS PIECE TO MOVE TO X/Y POSITION IF MOVE IS VALID
                     const updatedPieces = pieces.reduce((results, piece) => {
                         if (samePosition(piece.position, grabPosition)) {
-                            //SPECIAL MOVE
                             piece.enPassant = 
                                 Math.abs(grabPosition.y - y) === 2 && 
                                 piece.type === PieceType.PAWN
@@ -151,7 +148,7 @@ export default function Chessboard() {
                     }, [] as Piece[]);
                     setPieces(updatedPieces);
                 } else {
-                    // RESETS THE PIECES
+                    // RESETS THE PIECES IF MOVE IS INVALID
                     activePiece.style.position = "relative";
                     activePiece.style.removeProperty("top");
                     activePiece.style.removeProperty("left");
@@ -174,18 +171,22 @@ export default function Chessboard() {
                 switch(pieceType) {
                     case PieceType.ROOK: {
                         pieceImage = "rook";
+                        console.log('promoted to Rook!')
                         break;
                     }
                     case PieceType.KNIGHT: {
                         pieceImage = "knight";
+                        console.log('promoted to Knight!')
                         break;
                     }
                     case PieceType.BISHOP: {
                         pieceImage = "bishop";
+                        console.log('promoted to Bishop!')
                         break;
                     }
                     case PieceType.QUEEN: {
                         pieceImage = "queen";
+                        console.log('promoted to Queen!')
                         break;
                     }
                 }
@@ -196,9 +197,7 @@ export default function Chessboard() {
         }, [] as Piece[])
 
         setPieces(updatedPieces);
-
         modalRef.current?.classList.add("hidden");
-
     }
 
     let board = [];
