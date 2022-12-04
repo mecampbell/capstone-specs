@@ -5,7 +5,6 @@ import React, { useRef, useState } from 'react';
 import { VERTICAL_AXIS, HORIZONTAL_AXIS, Piece, TeamType, PieceType, initialBoardState, Position, GRID_SIZE, GRID_CENTER, samePosition } from '../../Constants';
 
 export default function Chessboard() {
-    
     const [activePiece, setActivePiece] = useState<HTMLElement | null>(null);
     const [promotionPawn, setPromotionPawn] = useState<Piece>()
     const [grabPosition, setGrabPosition] = useState<Position>({ x: -1, y: -1 })
@@ -120,6 +119,7 @@ export default function Chessboard() {
                         return results;
                     }, [] as Piece[])
                     setPieces(updatedPieces);
+                    console.log('en passant')
                 }   else if (validMove) {
                     // ALLOWS PIECE TO MOVE TO X/Y POSITION IF MOVE IS VALID
                     const updatedPieces = pieces.reduce((results, piece) => {
@@ -136,6 +136,7 @@ export default function Chessboard() {
                             if(y === promotionRow && piece.type === PieceType.PAWN) {
                                 modalRef.current?.classList.remove("hidden");
                                 setPromotionPawn(piece);
+                                console.log('promote')
                             }
                             results.push(piece);
                         } else if (!(samePosition(piece.position, {x, y}))) {
@@ -147,11 +148,13 @@ export default function Chessboard() {
                         return results;
                     }, [] as Piece[]);
                     setPieces(updatedPieces);
+                    console.log('move')
                 } else {
                     // RESETS THE PIECES IF MOVE IS INVALID
                     activePiece.style.position = "relative";
                     activePiece.style.removeProperty("top");
                     activePiece.style.removeProperty("left");
+                    console.log('invalid move')
                 }
             }
             setActivePiece(null);
@@ -171,22 +174,18 @@ export default function Chessboard() {
                 switch(pieceType) {
                     case PieceType.ROOK: {
                         pieceImage = "rook";
-                        console.log('promoted to Rook!')
                         break;
                     }
                     case PieceType.KNIGHT: {
                         pieceImage = "knight";
-                        console.log('promoted to Knight!')
                         break;
                     }
                     case PieceType.BISHOP: {
                         pieceImage = "bishop";
-                        console.log('promoted to Bishop!')
                         break;
                     }
                     case PieceType.QUEEN: {
                         pieceImage = "queen";
-                        console.log('promoted to Queen!')
                         break;
                     }
                 }
@@ -224,7 +223,6 @@ export default function Chessboard() {
     }
 
     return (
-    // NEED TO CREATE A RESET STATE UPON REFRESHING
     <>
     <div>
         <button onClick={() => window.location.reload()}>Reset board</button>

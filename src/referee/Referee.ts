@@ -26,7 +26,6 @@ export default class Referee {
 
     //prevent king from moving into danger
     //checks 
-    //castling
     //checkmate
     //stalemate
 

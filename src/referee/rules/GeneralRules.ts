@@ -20,12 +20,28 @@ export function tileIsOccupiedByOpponent (position: Position, boardState: Piece[
  } else {
      return false;
  }
+
 }
 
 export function tileIsEmptyorOccupiedByOpponent (position: Position, boardState: Piece[], team: TeamType) {
- return (
+    return (
      !tileIsOccupied(position, boardState) || 
      tileIsOccupiedByOpponent(position, boardState, team)
  );
+}
+
+
+
+
+export function stalemate () {
+    console.log('stalemate')
+}
+// STILL A WORK IN PROGRESS
+export function check () {
+    console.log('check')
+}
+
+export function checkmate () {
+    console.log('checkmate')
 }
 

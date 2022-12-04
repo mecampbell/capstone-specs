@@ -1,6 +1,17 @@
 import { TeamType, Piece, Position } from "../../Constants";
 import { tileIsEmptyorOccupiedByOpponent, tileIsOccupied } from "./GeneralRules";
 
+export function whiteLongCastle(initialPosition: Position, boardState: Piece[]): boolean {
+    
+    if(initialPosition.x === 0) {
+        if(initialPosition.y === 0) {
+            console.log(boardState.slice(0, boardState.length))
+            return true;
+        }
+    }
+    return false;
+}
+
 export function rookMove(initialPosition: Position, desiredPosition: Position, team: TeamType, boardState: Piece[]): boolean {
  if(desiredPosition.x === initialPosition.x) {
      for(let i = 1; i < 8; i++) {

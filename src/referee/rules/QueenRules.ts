@@ -8,7 +8,7 @@ export function queenMove(initialPosition: Position, desiredPosition: Position, 
          let passedPosition: Position = {x: initialPosition.x + i, y: initialPosition.y + i};
          if (passedPosition.x === desiredPosition.x && passedPosition.y === desiredPosition.y) {
              if(tileIsEmptyorOccupiedByOpponent(passedPosition, boardState, team)) {
-                 return true;
+                return true;
              }
          } else {
              if (tileIsOccupied(passedPosition, boardState)) {
@@ -83,16 +83,19 @@ export function queenMove(initialPosition: Position, desiredPosition: Position, 
          
          let passedPosition: Position = {x: initialPosition.x + (i*multiplier), y: initialPosition.y}; 
          if (passedPosition.x === desiredPosition.x && passedPosition.y === desiredPosition.y) {
-             if (tileIsEmptyorOccupiedByOpponent(passedPosition, boardState, team)) {
-                 return true;
+             if (tileIsEmptyorOccupiedByOpponent(passedPosition, boardState, team)) {                
+                return true;
              }
          } else {
              if (tileIsOccupied(passedPosition, boardState)) {
-                 break;
+                break;
              }
          }
      }
  }
+
+//  this is where check will go.
+
  return false;
 }
 
