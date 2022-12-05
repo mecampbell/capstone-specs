@@ -1,7 +1,6 @@
 import { TeamType, Piece, Position } from "../../Constants";
 import { tileIsEmptyorOccupiedByOpponent, tileIsOccupied } from "./GeneralRules";
 
-// export function rookMove(initialPosition: Position, desiredPosition: Position, team: TeamType, boardState: Piece[]): boolean
 export function kingMove(initialPosition: Position, desiredPosition: Position, team: TeamType, boardState: Piece[]): boolean {
     //castling
 
@@ -46,6 +45,7 @@ export function kingMove(initialPosition: Position, desiredPosition: Position, t
                     console.log('black castled long')
                     let blackLongRook = boardState[0]
                     blackLongRook.position.x = 3;
+                    blackLongRook.type = 3;
 
                     return true;  
                 }

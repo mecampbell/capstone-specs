@@ -2,7 +2,7 @@ import { TeamType, Piece, Position, samePosition } from "../../Constants";
 import { tileIsOccupied, tileIsOccupiedByOpponent } from "./GeneralRules";
 
 export function pawnMove (initialPosition: Position, desiredPosition: Position, team: TeamType, boardState: Piece[]): boolean {
-  const specialRow = (team === TeamType.OUR) ? 1 : 6;
+    const specialRow = (team === TeamType.OUR) ? 1 : 6;
   const pawnDirection = (team === TeamType.OUR) ? 1 : -1;
   
   if (initialPosition.x === desiredPosition.x && 

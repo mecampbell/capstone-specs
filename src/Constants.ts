@@ -36,7 +36,7 @@ export interface Piece {
 }
 
 
-// RENDERS PIECE IMAGES
+// RENDERS PIECES
 export const initialBoardState: Piece[] = [
  {
   image: `assets/images/rook_b.png`, 
