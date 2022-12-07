@@ -33,7 +33,7 @@ export function tileIsEmptyorOccupiedByOpponent (position: Position, boardState:
 
 
 
-
+// NEED TO IMPLEMENT
 export function stalemate () {
     console.log('stalemate')
 }

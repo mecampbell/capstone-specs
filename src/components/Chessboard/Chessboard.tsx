@@ -21,7 +21,7 @@ export default function Chessboard() {
             });
         });
     }
-
+// ALLOWS YOU TO GRAB PIECES AND SETS THEIR POSITION
     function grabPiece(e: React.MouseEvent) {
         updateValidMoves();
         const element = e.target as HTMLElement;
@@ -44,7 +44,7 @@ export default function Chessboard() {
             setActivePiece(element);
         }
     }
-
+// ALLOWS PIECES TO MOVE TO THE MIDDLE OF A TILE
     function movePiece(e: React.MouseEvent) {
         const chessboard = chessboardRef.current;
         if (activePiece && chessboard) {
@@ -73,7 +73,7 @@ export default function Chessboard() {
             }
         }
     }
-
+// DROPS PIECES, ALLOWS EN PASSANT, CAPTURES, && REVERTS INVALID MOVES
     function dropPiece(e: React.MouseEvent) {
         const chessboard = chessboardRef.current;
         if(activePiece && chessboard) {
@@ -205,7 +205,7 @@ export default function Chessboard() {
         return (promotionPawn?.team === TeamType.OUR) ? "w" : "b"
     }
 
-    //RENDERS THE PIECE IMAGES
+//RENDERS THE PIECE TILES, IMAGES, AND HIGHLIGHT
     for (let j = VERTICAL_AXIS.length - 1; j >= 0; j--) {
         for (let i = 0; i < HORIZONTAL_AXIS.length; i++) {
             const number = j + i + 2;
@@ -221,7 +221,7 @@ export default function Chessboard() {
             board.push(<Tile key={`${j},${i}`} image={image} number={number} highlight={highlight} />)
         }
     }
-
+// RETURNS THE PAWN PROMOTION MODAL, MOUSE EVENTS, and INITIAL BOARD
     return (
     <>
     <div>

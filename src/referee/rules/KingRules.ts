@@ -4,7 +4,7 @@ import { tileIsEmptyorOccupiedByOpponent, tileIsOccupied } from "./GeneralRules"
 export function kingMove(initialPosition: Position, desiredPosition: Position, team: TeamType, boardState: Piece[]): boolean {
     //castling
 
-    //white long castle
+    //white long castles
     if (initialPosition.x === 4) {
         if (initialPosition.y === 0) {
             let passedKingPosition: Position = {x: initialPosition.x - 2, y: initialPosition.y + 0};
